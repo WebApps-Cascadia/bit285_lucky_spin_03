@@ -4,8 +4,8 @@ namespace LuckySpin.Models
 	public class Player
 	{
 		//TODO: Use data-binding information from Index.cshtml to create appropriate properties
-		string FirstName { get; set; }
-		int Luck { get; set; }
+		public string FirstName { get; set; }
+		public int Luck { get; set; }
 
 	}
 }
