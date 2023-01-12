@@ -1,14 +1,14 @@
 ﻿@model LuckySpin.Models.Spin 
 @inject LuckySpin.Models.TextTransform TT
 @{
-    
+    Layout = "_Layout";
 }
 
 <button onclick='history.go(0)'>Spin</button>
 <div>@Model.Numbers[0]</div><div>@Model.Numbers[1]</div><div>@Model.Numbers[2]</div>
 
 <span style="display:@Model.ImageDisplay">
-    <h2> Player wins with lucky number 7 </h2>
+    <h2> @Model.player.FirstName wins with lucky number @Model.Luck </h2>
     <img src="/Images/LuckySpinCoins.jpg" alt="Coins"/>
 </span>
 
