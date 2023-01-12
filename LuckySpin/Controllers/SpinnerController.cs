@@ -26,16 +26,16 @@ namespace LuckySpin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(Player player)
+        public IActionResult Index(Player player) 
         {
-            return View();
+            return RedirectToAction("Spin", player);
         }
 
         /***
          * Spin Action - displays the Spin View passing a new Spin including the Player info
          **/
         [HttpGet]
-        public IActionResult Spin(int luck)
+        public IActionResult Spin(Player player)
         {
             Random random = new Random();
 
@@ -43,12 +43,13 @@ namespace LuckySpin.Controllers
             Spin spin = new Spin
             {
                 //TODO: Assign Spin properties according to Model changes
-                //Luck = luck,
+                Luck = player.Luck,
+                player = player,
                 Numbers = new int[] { random.Next(1, 9), random.Next(1, 9), random.Next(1, 9) }
             };
 
             //Assigns ImageShown property to the appropiate CSS display value (either "block" or "none")
-            if (Array.Exists(spin.Numbers, n => n == 7))
+            if (Array.Exists(spin.Numbers, n => n == spin.Luck))
                 spin.ImageDisplay = "block";
             else
                 spin.ImageDisplay = "none";
