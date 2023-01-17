@@ -7,5 +7,6 @@ public class Spin
     public int Luck { get; set; }
     public int[]? Numbers { get; set; } 
     public string? ImageDisplay { get; set; }
+    public Player player { get; set; }
 
 }
